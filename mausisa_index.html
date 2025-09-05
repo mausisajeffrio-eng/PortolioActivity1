@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Jeff Rio Mausisa Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">JEFF RIO MAUSISA</h1>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="intro-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h2 id="intro-title">Hi, I’m Jeff Rio Mausisa👋</h2>
+            <p class="lead">I build simple, human-friendly web experiences.</p>
+            <a class="btn" href="#projects">See my work</a>
+          </div>
+          <figure class="profile">
+            <img src="Jeff_Rio_Mausisa_2x2.png" alt="Portrait of Your Name" />
+            <figcaption>Based in Butuan City, PH</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About</h2>
+        <p>
+          I’m a beginner web developer focused on clean, accessible interfaces. I enjoy CSS layout, semantic HTML, and learning by building.
+        </p>
+        <p>
+          I’m currently exploring <strong>HTML/CSS</strong> fundamentals and crafting small projects.
+          You can reach me on <a href="#contact">email</a> or see my code on 
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 id="projects-title">Projects</h2>
+        <div class="cards">
+
+          <article class="card">
+            <img src="screenshot-project-a.png" alt="Screenshot of Project A" />
+            <div class="card-body">
+              <h3>Project A</h3>
+              <p>A simple landing page using only HTML and CSS.</p>
+              <a class="btn btn-outline" href="http://localhost/BRGY_ATTENDANCE/" target="_blank" rel="noopener">View</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="project-b.png" alt="Screenshot of Project B" />
+            <div class="card-body">
+              <h3>Project B</h3>
+              <p>A responsive portfolio layout with flexbox.</p>
+              <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="project-c.png" alt="Screenshot of Project C" />
+            <div class="card-body">
+              <h3>Project C</h3>
+              <p>A clean contact page with form styles.</p>
+              <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 id="skills-title">Skills</h2>
+        <ul class="chips" role="list">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>Responsive Design</li>
+          <li>Git & GitHub</li>
+          <li>Accessibility</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <address>
+          Email: <a href="mausisajeffrio@example.com">mausisajeffrio@example.com</a><br />
+          Location: Butuan City, Philippines
+        </address>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    © <span id="year">2025</span> Jeff Rio Mausisa· Built with HTML & CSS
+  </footer>
+
+  <script>
+    (function() {
+      const docEl = document.documentElement;
+      const THEME_KEY = 'preferred-theme';
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme === 'dark') docEl.setAttribute('data-theme', 'dark');
+
+      const toggle = document.createElement('button');
+      toggle.id = 'theme-toggle';
+      toggle.type = 'button';
+      function setToggleLabel() {
+        toggle.textContent = docEl.getAttribute('data-theme') === 'dark' ? '☀️ Light' : '🌙 Dark';
+        toggle.setAttribute('aria-label', 'Toggle color theme');
+      }
+      setToggleLabel();
+      toggle.addEventListener('click', function() {
+        const isDark = docEl.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          docEl.removeAttribute('data-theme');
+          localStorage.setItem(THEME_KEY, 'light');
+        } else {
+          docEl.setAttribute('data-theme', 'dark');
+          localStorage.setItem(THEME_KEY, 'dark');
+        }
+        setToggleLabel();
+      });
+      document.body.appendChild(toggle);
+
+      const toTop = document.createElement('button');
+      toTop.id = 'backToTop';
+      toTop.type = 'button';
+      toTop.title = 'Back to top';
+      toTop.setAttribute('aria-label', 'Back to top');
+      toTop.innerHTML = '↑';
+      toTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      document.body.appendChild(toTop);
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) { toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+      });
+
+      (function updateYear() {
+      var yearEl = document.getElementById('year');
+      if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+      })();
+
+      (function enableLazyLoad() {
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+          if (!img.hasAttribute('loading')) { img.setAttribute('loading', 'lazy'); }
+          if (!img.hasAttribute('decoding')) { img.setAttribute('decoding', 'async'); }
+        });
+      })();
+
+      (function highlightActiveNav() {
+        var sectionIds = ['about', 'projects', 'skills', 'contact'];
+        var sections = sectionIds
+          .map(function(id) { var el = document.getElementById(id); return el ? el : null; })
+          .filter(Boolean);
+        var links = Array.from(document.querySelectorAll('nav a'));
+        if (!('IntersectionObserver' in window) || sections.length === 0) return;
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;
+              links.forEach(function(a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + id); });
+            }
+          });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: [0, 0.25, 0.5, 1] });
+        sections.forEach(function(sec) { observer.observe(sec); });
+      })();
+
+      (function makeProjectsInteractive() {
+        var projects = [
+          {
+            title: 'Project A',
+            description: 'A simple landing page using only HTML and CSS.',
+            longDescription: 'This project demonstrates clean HTML structure and modern CSS techniques. Built with semantic HTML5 elements and responsive design principles. Features include mobile-first approach, accessibility considerations, and smooth animations.',
+            image: 'screenshot-project-a.png',
+            link: 'http://localhost/BRGY_ATTENDANCE/',
+            tags: ['HTML5', 'CSS3', 'Responsive Design', 'Accessibility']
+          },
+          {
+            title: 'Project B',
+            description: 'A responsive portfolio layout with flexbox.',
+            longDescription: 'A comprehensive portfolio website showcasing responsive design skills. Utilizes CSS Grid and Flexbox for complex layouts. Includes interactive elements, smooth scrolling, and optimized performance.',
+            image: 'project-b.png',
+            link: '#',
+            tags: ['CSS Grid', 'Flexbox', 'JavaScript', 'Performance']
+          },
+          {
+            title: 'Project C',
+            description: 'A clean contact page with form styles.',
+            longDescription: 'A contact page with custom form styling and validation. Features include client-side validation, accessibility features, and modern form design patterns.',
+            image: 'project-c.png',
+            link: '#',
+            tags: ['Forms', 'Validation', 'UX Design', 'Accessibility']
+          }
+        ];
+
+        function createModal(project) {
+          var modal = document.createElement('div');
+          modal.className = 'project-modal';
+          modal.innerHTML = 
+            '<div class="modal-content">' +
+              '<div class="modal-header">' +
+                '<h3>' + project.title + '</h3>' +
+                '<button class="modal-close" aria-label="Close modal">&times;</button>' +
+              '</div>' +
+              '<div class="modal-body">' +
+                '<img src="' + project.image + '" alt="' + project.title + '" class="modal-image">' +
+                '<p>' + project.longDescription + '</p>' +
+                '<div class="project-tags">' +
+                  project.tags.map(function(tag) { return '<span class="project-tag">' + tag + '</span>'; }).join('') +
+                '</div>' +
+                '<div class="modal-actions">' +
+                  '<a href="' + project.link + '" class="btn" target="_blank" rel="noopener">View Project</a>' +
+                  '<button class="btn btn-outline modal-close">Close</button>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
+          
+          document.body.appendChild(modal);
+          
+          function closeModal() {
+            modal.classList.remove('show');
+            setTimeout(function() { document.body.removeChild(modal); }, 300);
+          }
+          
+          modal.querySelectorAll('.modal-close').forEach(function(btn) {
+            btn.addEventListener('click', closeModal);
+          });
+          
+          modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+          });
+          
+          setTimeout(function() { modal.classList.add('show'); }, 10);
+        }
+
+        var cards = document.querySelectorAll('.card');
+        cards.forEach(function(card, index) {
+          if (projects[index]) {
+            card.addEventListener('click', function() {
+              createModal(projects[index]);
+            });
+            
+            // Add keyboard support
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', 'View details for ' + projects[index].title);
+            
+            card.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                createModal(projects[index]);
+              }
+            });
+          }
+        });
+      })();
+    })();
+  </script>
+</body>
+</html>
+</html>
